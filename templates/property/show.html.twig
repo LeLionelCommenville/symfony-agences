@@ -3,7 +3,12 @@
 {% block title property.title %}
 
 {% block body %}
- <div class="container mt-4">
+<div class="container md-4">
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
  	<div class="row">
  		<div class="col-md-8">
  		</div>
@@ -12,6 +17,22 @@
  			<h2>{{ property.rooms }} pièces - {{ property.surface }} m²</h2>
  			<div class="text-primary" style="font-size: 4rem;font-weight: bold;">{{ property.formattedPrice }} € </div> 
  			<a href="#" class="btn btn-primary">Contacter l'agence</a>
+ 			<div id="contactForm" class="mt-4">
+ 				{{ form_start(form) }}
+ 					<div class="row">
+ 						<div class="col">{{ form_row(form.firstname) }}</div>
+ 						<div class="col">{{ form_row(form.lastname) }}</div>
+ 					</div> 					
+ 					<div class="row">
+ 						<div class="col">{{ form_row(form.phone) }}</div>
+ 						<div class="col">{{ form_row(form.email) }}</div>
+ 					</div>
+ 					{{ form_rest(form) }}
+ 					<div class="form-group">
+ 						<button class="btn btn-primary">Envoyez</button> 
+ 					</div>
+ 				{{ form_end(form) }}
+ 			</div>
  		</div>
  	</div>
  	<nav class="nav nav-tabs" id="tab"></nav>
