@@ -14,3 +14,9 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+public/images/properties/60e0822b4680a548403863.jpg
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
+public/images/properties/60e208de4e1b0577760809.jpg
