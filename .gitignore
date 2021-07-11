@@ -20,3 +20,17 @@ public/images/properties/60e0822b4680a548403863.jpg
 /public/media/cache/
 ###< liip/imagine-bundle ###
 public/images/properties/60e208de4e1b0577760809.jpg
+
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-pack ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
