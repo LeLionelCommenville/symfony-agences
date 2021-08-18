@@ -12,11 +12,18 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
  * @UniqueEntity("title")
  * @Vich\Uploadable()
+ * @ApiResource(
+ *  normalizationContext={"groups"={"read:property"}},
+ *  collectionOperations={"get"},
+ *  itemOperations={"get"}
+ * )
  */
 class Property
 {
@@ -49,68 +56,81 @@ class Property
     /**
      * @Assert\Length(min=5, max=255)
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:property"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"read:property"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\Range(min=9, max=1000)
+     * @Groups({"read:property"})
      */
     private $surface;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read:property"})
      */
     private $rooms;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read:property"})
      */
     private $bedrooms;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read:property"})
      */
     private $floor;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read:property"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read:property"})
      */
     private $heat;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:property"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:property"})
      */
     private $address;
 
     /**
      * @Assert\Regex("/^[0-9]{5}$/")
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:property"})
      */
     private $postal_code;
 
     /**
      * @ORM\Column(type="boolean", options={"default": false})
+     * @Groups({"read:property"})
      */
     private $sold = false;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"read:property"})
      */
     private $created_at;
 
